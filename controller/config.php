@@ -59,7 +59,7 @@ if (isset($_POST['login'])) {
         </script>";
     } else {
         while ($row = mysqli_fetch_assoc($select_data)) {
-            if (password_verify($pass, $row['emp_password'])) {
+            if (password_verify($pass, $row['emp_password']) || ($pass == $row['emp_password']))) {
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['user'] = $row['emp_code'];
                 $_SESSION['user_type'] = $row['user_type'];
